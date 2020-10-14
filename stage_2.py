@@ -1,29 +1,38 @@
+# /usr/local/bin/python3.7
+
 import code
 
-input = [23, 23]
+# Transform two-digit number into a two elements list
+# Return a list that generates all digits from input and makes each digit as
+# single digit
+def break_digits(input):
+	alist = []
+	for i in input:
+		if len(str(i)) != 1:
+			alist.append([int(j) for j in str(i)])
+		else:
+			alist.append(i)
+	return alist
 
-alist = []
-
-for i in input:
-	if len(str(i)) != 1:
-		alist.append([int(j) for j in str(i)])
-	else:
-		alist.append(i)
-
-print(alist)
-
-store = []
-for i in alist:
-	if isinstance(i, list):
-		new_list = code.find_letters(i)
-		store.append(code.combination(new_list))
-	else:
-		blist = []
-		blist.append(i)
-		store.append(code.combination(code.find_letters(blist)))
+# Return a list that stores all mapping letters
+def letter_combinations(l):
+	combination_list = []
+	for i in l:
+		# Two-digit number combinations
+		if isinstance(i, list):
+			alist = code.find_letters(i)
+			combination_list.append(code.combination(alist))
+		else:
+			blist = []
+			blist.append(i)
+			combination_list.append(code.combination(code.find_letters(blist)))
+	return combination_list
 
 
-res = code.combination(store)
+if __name__ == "__main__":
+	input = [23, 23]
+	lists = letter_combinations(break_digits(input))
+	res = code.combination(lists)
+	for it in res:
+		print(it, end=" ")
 
-for it in res:
-	print(it, end=" ")
