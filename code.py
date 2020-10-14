@@ -1,3 +1,6 @@
+# /usr/local/bin/python3.7
+
+# Mapping of each digit to letters
 board = {
 	1: ['1'], 2: ['a', 'b', 'c'], 3: ['d', 'e', 'f'],
 	4:['g', 'h', 'i'], 5:['j', 'k', 'l'], 6:['m', 'n', 'o'],
@@ -5,10 +8,8 @@ board = {
 	'*': ['*'], 0: ['0'], '#': ['#']
 }
 
-# input = input('What digit(s) do you want convert? ').split(', ')
-# input = [2, 3]
 
-
+# Return a list that contains all letters mapped from input
 def find_letters(input):
 	temp_list = []
 	for i in input:
@@ -16,6 +17,7 @@ def find_letters(input):
 	return temp_list
 
 
+# Lists combination, return all possible letter combinations from the input list
 def combination(lists):
 	try:
 		import reduce
@@ -27,12 +29,9 @@ def combination(lists):
 
 
 if __name__ == "__main__":
-	input = [2, 6]
-
+	input = [1, 0]
 	lists = find_letters(input)
-
 	res = combination(lists)
-
 	for it in res:
 		print(it, end=" ")
 
