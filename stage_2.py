@@ -33,6 +33,5 @@ if __name__ == "__main__":
 	input = [23, 23]
 	lists = letter_combinations(break_digits(input))
 	res = code.combination(lists)
-	for it in res:
-		print(it, end=" ")
+	code.styling(res)
 
