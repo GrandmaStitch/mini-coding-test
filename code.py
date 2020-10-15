@@ -28,12 +28,16 @@ def combination(lists):
 	return fn(lists)
 
 
+def styling(l):
+	for it in l:
+		print(it, end=" ")
+
 if __name__ == "__main__":
-	input = [1, 0]
+	input = [2, 3]
 	lists = find_letters(input)
 	res = combination(lists)
-	for it in res:
-		print(it, end=" ")
+	styling(res)
+
 
 
 
